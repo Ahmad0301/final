@@ -1,1 +1,92 @@
-https://chatgpt.com/c/6867ac12-9644-800f-b80c-a307d00893de
+
+        DevOps Fundamentals [Fall, 2024]
+              
+OBJECTIVES
+The objective of this assignment is to provide hands-on experience in using GitHub Actions to create CI pipelines for automating code quality checks. Students will independently set up a workflow, enforce branch protection rules, and manage feature branches to build a multi-page static website while ensuring adherence to coding standards.
+IMPORTANT INSTRUCTIONS
+1.	This is a solo assignment. Each student must complete the tasks independently. Collaboration is strictly prohibited.
+2.	Read the provided scenario before attempting the task.
+3.	Once the work is complete, students must provide the repository URL in the table below and upload this document on your portal.
+4.	Please ensure the instructor is added as a collaborator for evaluation.
+5.	There must be four PRs in your repository and those must be closed after the successful merger into the target branch. All checks must be passed. 
+
+
+Student Details
+Student Name	
+Roll Number	
+
+Repository Details
+Repository URL	
+
+
+
+
+Best Of Luck
+ 
+Scenario
+Develop a multi-page static portfolio website comprising 3-4 pages (Home, About, Projects, Contact). Each page should have dedicated CSS styling. Utilize GitHub for version control, incorporating GitHub Actions to automate linting checks for HTML and CSS. Implement branch protection rules to maintain code quality and prevent unintended changes
+Tasks________________________________________________________________________
+Task: 1	Initialize Repository: 							[20 Marks]
+I.	Create a new GitHub repository named 'Portfolio-Website'.
+II.	Clone the repository to your local machine.
+III.	Each student must configure local repository's user name with their roll number and email with their university email address.
+IV.	IMPORTANT: User name and email MUST BE IN ALL SMALL CASE.
+V.	Add the instructor as a collaborator (email: zsaing.ucp@gmail.com). Grant him “write” rights.
+VI.	Set the default branch to 'develop'.
+VII.	Create project folder structure that must contain “src” and “styles” folders
+VIII.	Create “.gitignore” file that must contain entries that include “modules” and “**/modules”
+IX.	Create “package.json” file at the root of your project folder.
+X.	Commit these changes and push the develop branch on the remote repository.
+
+Task: 2	Set Up Branch Protection Rules:					 [10 Marks]
+I.	Configure branch protection rules for the 'develop' branch.
+a.	No collaborator including “repository Admin/Owner” must be able to push commits into develop branch without creating a PR.
+b.	No PR must be able to be merged if Linting Check is not Passed.
+
+Task: 3	Create Linting Workflow: 						[40 Marks]
+I.	Create a feature branch named “feature/linting-workflow”.
+II.	Add configuration files for .htmlhintrc.json and .stylelintrc.json.
+III.	Create a YAML workflow file in the .github/workflows/ directory named “linting-pipeline.yaml”.
+IV.	Configure the workflow to, 
+a.	Trigger on push and pull request events for the “develop” branch.
+b.	Use an Ubuntu runner.
+c.	Install HTMLHint and Stylelint using npm as development dependencies.
+d.	Lint all HTML and CSS files.
+V.	Edit  .htmlhintrc.json & .stylelintrc.json . 
+VI.	Rules given in table 1&2 must exist in .htmlhintrc.json and stylelintrc.json respectively.
+
+
+Task: 4	Develop Website Pages: 				[30 Marks]
+I.	For each website page (e.g., Home, About Me, Projects, Contact):
+a.	Create a separate feature branch for each page. (e.g., “feature/home-page”).
+b.	Add the HTML file for the page and its corresponding CSS file.
+c.	Ensure the files adhere to the linting rules
+d.	Commit the changes to the current branch. Push the branch to the repository.
+e.	Create a pull request to merge the branch into “develop”.
+f.	Address any linting errors.
+g.	Then merge the PR into “develop” branch. 
+II.	There must four PRs in your repository and those must be closed after checks are passed
+III.	There must exist 8 Successful Workflow Run Logs on the github for the repository. 
+
+Table 1 : HTMLHint Rules
+Rule	Description
+tagname-lowercase	Ensures all HTML tags are in lowercase.
+attr-lowercase	Ensures all attribute names are in lowercase.
+alt-require	Requires alt attributes for <img> tags.
+id-unique	Ensures all id attributes in the document are unique.
+tag-pair	Tag must be paired.
+
+Table 2: Stylelint Rules
+Rule	Description
+declaration-block-no-duplicate-properties	Disallows duplicate properties within declaration blocks (e.g., multiple color properties).
+no-duplicate-selectors	Disallows duplicate selectors (e.g., writing .btn rules multiple times).
+property-case		
+
+		
+	Enforces lowercase for property names (e.g., color instead of COLOR).
+value-keyword-case	Enforces lowercase for keywords in property values (e.g., red instead of RED).
+
+selector-type-case	Enforces lowercase for type selectors (e.g., body instead of BODY).
+block-no-empty	Disallows empty rule blocks.
+
+
